@@ -1,9 +1,13 @@
-var express = require("express");
+const express = require("express");
+const hRoute = require("./routes/htmlRoutes");
+const aRoute = require("./routes/apiRoutes");
 
 // Sets up the Express App
 // =============================================================
-var app = express();
-var PORT = process.env.PORT || 3001;
+const app = express();
+const PORT = process.env.PORT || 3001;
+hRoute(app);
+aRoute(app);
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
