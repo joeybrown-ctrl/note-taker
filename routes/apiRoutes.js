@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const UUID = require("UUID");
+const UUID = require("uuid");
 
 module.exports = (app) => {
 
@@ -14,12 +14,22 @@ module.exports = (app) => {
     })
 
     app.post("/api/notes", (req, res) => {
-        if (err) throw err;
-        let newNote = JSON.parse(data);
-        newNote.push(req.body);
 
-        //write to db.json
-    })
+        //read db file, parse db file
+        req.body.id = UUID.v1()
+        console.log(req.body);
+        fs.readFile('./db/db.json', 'utf8', (err, data) => {
+            let noteSum = JSON.parse(data);
+            noteSum.push(req.body);
+
+            fs.writeFile('./db/db.json', JSON.stringify(noteSum), (err) => {
+                if (err) throw err;
+            });
+        })
+
+
+        
+})
 
 
 
