@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const UUID = require("UUID");
 
 module.exports = (app) => {
 
@@ -10,6 +11,14 @@ module.exports = (app) => {
             let notes = JSON.parse(data);
             return res.json(notes);
         });
+    })
+
+    app.post("/api/notes", (req, res) => {
+        if (err) throw err;
+        let newNote = JSON.parse(data);
+        newNote.push(req.body);
+
+        //write to db.json
     })
 
 
