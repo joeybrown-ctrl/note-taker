@@ -4,7 +4,8 @@ const fs = require("fs");
 module.exports = (app) => {
 
     app.get("/api/notes", (req, res) => {
-        fs.readFile('../db/db.json', "utf8", (err, data) => {
+        console.log("route hit");
+        fs.readFile('./db/db.json', "utf8", (err, data) => {
             if (err) throw err;
             let notes = JSON.parse(data);
             return res.json(notes);
