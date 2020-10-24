@@ -26,10 +26,11 @@ module.exports = (app) => {
                 if (err) throw err;
             });
         })
+    })
 
+    app.delete("/api/notes", (req, res) => {
 
-        
-})
+    });
 
 
 
