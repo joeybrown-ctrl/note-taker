@@ -1,11 +1,9 @@
-const path = require("path");
 const fs = require("fs");
 const UUID = require("uuid");
 
 module.exports = (app) => {
 
     app.get("/api/notes", (req, res) => {
-        console.log("route hit");
         fs.readFile('./db/db.json', "utf8", (err, data) => {
             if (err) throw err;
             let notes = JSON.parse(data);
@@ -14,22 +12,28 @@ module.exports = (app) => {
     })
 
     app.post("/api/notes", (req, res) => {
-
-        //read db file, parse db file
         req.body.id = UUID.v1()
-        console.log(req.body);
         fs.readFile('./db/db.json', 'utf8', (err, data) => {
             let noteSum = JSON.parse(data);
             noteSum.push(req.body);
 
             fs.writeFile('./db/db.json', JSON.stringify(noteSum), (err) => {
                 if (err) throw err;
+                res.json(req.body);
             });
         })
     })
 
-    app.delete("/api/notes", (req, res) => {
+    app.delete("/api/notes/:id", (req, res) => {
+        fs.readFile('./db/db.json', 'utf8', (err, data) => {
+            let noteSum = JSON.parse(data);
+            noteSum = noteSum.filter(note => req.params.id !== note.id)
 
+            fs.writeFile('./db/db.json', JSON.stringify(noteSum), (err) => {
+                if (err) throw err;
+                res.json("Success!");
+            });
+        })
     });
 
 
