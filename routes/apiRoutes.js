@@ -27,7 +27,7 @@ module.exports = (app) => {
     app.delete("/api/notes/:id", (req, res) => {
         fs.readFile('./db/db.json', 'utf8', (err, data) => {
             let noteSum = JSON.parse(data);
-            noteSum = noteSum.filter(note => req.params.id !== note.id)
+            noteSum = noteSum.filter(note => note.id !== req.params.id)
 
             fs.writeFile('./db/db.json', JSON.stringify(noteSum), (err) => {
                 if (err) throw err;
