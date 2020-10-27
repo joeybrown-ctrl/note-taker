@@ -20,10 +20,14 @@
 <hr>
 
   ## Description 
-A note-taking app for users to keep persistent notes. Allows users to create, save and delete notes, as well as viewing previously saved notes. Utilizes an Express back-end by using GET, POST and DELETE routes to work with data. Built using Express.js, Node.js, JavaScript, CSS and HTML. Deployed via Heroku. 
+A note-taking app for users to keep persistent notes. Allows users to create, save and delete notes, as well as viewing previously saved notes. Utilizes an Express back-end and uses GET, POST and DELETE HTML and API routes to work with data. Built using Express.js, Node.js, JavaScript, CSS and HTML. Deployed via Heroku. 
 
   ## Usage 
-Can be used via the browser.
+The images below show how to interact with the app.
+![Image of home page](https://github.com/joeybrown-ctrl/note-taker/blob/main/images/note-taker-pic.png)
+<hr>
+![Image of note page](https://github.com/joeybrown-ctrl/note-taker/blob/main/images/save-delete-pic.png)
+<hr>
 
   ## Questions 
   
