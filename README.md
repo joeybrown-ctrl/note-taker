@@ -24,8 +24,11 @@ A note-taking app for users to keep persistent notes. Allows users to create, sa
 
   ## Usage 
 The images below show how to interact with the app. Click on the link above to view the deployed app in the browser!
+<br>
+
 ![Image of home page](https://github.com/joeybrown-ctrl/note-taker/blob/main/images/note-taker-pic.png)
 <hr>
+
 ![Image of note page](https://github.com/joeybrown-ctrl/note-taker/blob/main/images/save-delete-pic.png)
 <hr>
 
